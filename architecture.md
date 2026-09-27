@@ -348,7 +348,7 @@ human-readable `docs/sources.md` with the 5 entry URLs first.
 ### 7.1 Single entrypoint: `pipeline.answer_question()`
 
 ```
-answer_question(query) -> Answer
+answer_question(query, settings=None, *, use_cache=True, history=None) -> Answer
 │
 ├─ 0. INGRESS GUARDS                          (guardrails/, no LLM, no retrieval)
 │     ├─ pii.detect_pii(query)  ─────────────▶ status="pii_rejected"   (return, nothing logged raw)
@@ -356,8 +356,10 @@ answer_question(query) -> Answer
 │     └─ scope.check_scheme(query)  ──────────▶ status="refused"       (out-of-corpus AMC/scheme)
 │
 ├─ 1. RETRIEVE                                (retrieval/retriever.py)
-│     ├─ q = embedder.embed_query(query)                       [same MiniLM instance]
-│     ├─ filter = {"scheme_id": [...] } if a scheme was resolved from the query
+│     ├─ carried = history.carried_scheme_id(query)   if history else None   [see 7.1a]
+│     ├─ search = expand_with_scheme(query, carried)  if carried else query
+│     ├─ q = embedder.embed_query(search)                      [same MiniLM instance]
+│     ├─ filter = {"scheme_id": carried_or_resolved} if a scheme was resolved
 │     ├─ hits = coll.query(q, n=top_k, where=filter)
 │     └─ if max(hits.score) < min_similarity ─▶ status="insufficient_context"
 │                                             (reply + official page link, no LLM)
@@ -384,6 +386,32 @@ answer_question(query) -> Answer
 Branch coverage: every `return` in `answer_question` produces a complete `Answer` object, so the UI
 has exactly one rendering path with a `status` switch. This is what makes the demo's "states" real
 rather than aspirational.
+
+#### 7.1a Conversation memory (retrieval-side only)
+
+`history` is an optional `retrieval.memory.TurnBuffer` holding the last `MEMORY_WINDOW = 10`
+prior user questions. It exists for one purpose: letting a deictic follow-up resolve to the
+fund already under discussion. Three properties keep it safe:
+
+- **It never reaches generation.** The prompt still carries one question and its chunks, so
+  history does not leave the machine and a PII turn in the buffer cannot reach a hosted
+  provider.
+- **It never touches the guards, the cache key, or the logged hash.** All three keep using the
+  raw `query`; only the embedded query is expanded. A carried scheme therefore cannot change
+  which guard applies, what the cache is keyed on, or what reaches `logs/queries.jsonl`.
+- **A self-contained query is never overridden.** If the question names a scheme itself,
+  `carried_scheme_id` returns `None`, so asking about Large Cap mid-conversation about Small
+  Cap answers for Large Cap.
+
+The expansion adds one scheme *name*, never the window: a deictic follow-up embeds weakly
+because "and"/"its" carry no meaning, and `"And its exit load?"` scores 0.272 against the ELSS
+exit-load chunk — just under the 0.30 gate — while `"HDFC ELSS Tax Saver Fund - Direct - Growth
+And its exit load?"` scores 0.937. Chunks are titled `<scheme name> - <section>`, so the name is
+what the vector is keyed on. Concatenating ten turns instead would pull the embedding toward the
+centre of the conversation and blur a question about exit load into something else.
+
+With `history=None` — the default, and what the evaluation harness uses — retrieval is byte-for-byte
+the behaviour it had before this was added.
 
 ### 7.2 Sequence — factual question
 

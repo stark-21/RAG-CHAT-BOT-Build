@@ -87,11 +87,31 @@ question
 | --- | --- |
 | Guards | `src/guardrails/` (`intent`, `pii`, `refusal`) |
 | Retrieval | `src/retrieval/retriever.py` |
+| Conversation memory | `src/retrieval/memory.py` (retrieval-side only) |
 | Prompt + validation | `src/llm/prompt_builder.py`, `src/llm/generator.py` |
 | Providers | `src/llm/provider.py` (`StubProvider`, plus hosted providers) |
 | Orchestration | `src/pipeline.py` |
 | Observability | `src/observability.py` |
 | UI | `src/app.py` |
+
+### Follow-up questions
+
+The UI keeps the last 10 questions in the session, and they are used for one thing: letting a
+follow-up resolve to the fund you are already discussing.
+
+```
+you:  Tell me about the HDFC ELSS Tax Saver Fund
+bot:  ...ELSS Tax Saver...
+you: And its exit load?          <- names no scheme of its own
+bot:  ...ELSS Tax Saver exit load schedule...   (scoped to S3, not whichever fund ranks first)
+```
+
+Memory is deliberately retrieval-side only. It never reaches the model, so conversation history
+does not leave the machine and a PII turn in the buffer cannot be sent to a hosted provider. It
+also never touches the guards, the cache key, or the hashed query that gets logged — a carried
+scheme cannot change which guard applies or what is written to `logs/queries.jsonl`. A question
+that names its own scheme is never overridden by an earlier one, and with no history the
+retriever behaves exactly as it did before. See `architecture.md` §7.1a.
 
 ---
 

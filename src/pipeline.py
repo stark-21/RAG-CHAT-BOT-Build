@@ -32,6 +32,7 @@ from src.llm.prompt_builder import build_prompt
 from src.llm.provider import get_provider
 from src.observability import hash_query, query_record
 from src.retrieval.retriever import retrieve
+from src.retrieval.memory import TurnBuffer, expand_with_scheme
 from src.types import Answer, QueryTrace, RetrievedChunk
 
 __all__ = ["answer_question"]
@@ -226,12 +227,18 @@ def answer_question(
     settings: Settings | None = None,
     *,
     use_cache: bool = True,
+    history: TurnBuffer | None = None,
 ) -> Answer:
     """Answer one question. Never raises: every path returns a render-ready `Answer`.
 
     `use_cache=False` forces the live path. The cache is consulted only *after* the ingress
     guards, so a cached answer can never bypass a refusal: a question that must be refused is
     refused on every run, cached or not.
+
+    `history` is an optional bounded window of prior questions, used only to scope a
+    deictic follow-up to a scheme. It never reaches generation and never alters the guards,
+    the cache key, or the hashed query that gets logged; with `history=None` this function
+    behaves exactly as it did before.
     """
     started = time.perf_counter()
     cfg = settings or get_settings()
@@ -261,6 +268,16 @@ def answer_question(
         return answer
 
     # ---- 1. retrieve ---------------------------------------------------------------
+    # A follow-up that names no scheme of its own inherits the most recent one from the
+    # conversation, so "and its exit load?" is scoped to the fund under discussion instead
+    # of searching all five. Resolved here, before the cache lookup, so a cached answer
+    # establishes the same referent a retrieved one would.
+    carried = history.carried_scheme_id(text) if history is not None else None
+    # Only the embedded query is expanded. The guards, the cache key, and the logged hash
+    # all keep using `text`, so a carried scheme can never change which guard applies, what
+    # the cache is keyed on, or what is written to the query log.
+    search_text = expand_with_scheme(text, carried)
+
     if use_cache:
         # Only reached once the guards have passed, so a refusal is never replayed.
         try:
@@ -268,8 +285,13 @@ def answer_question(
 
             cached = AnswerCache().get(text)
         except Exception:
-            cached = None  # a broken cache must never cost the user their answer
+            cached = None
         if cached is not None:
+            # A cache hit returns before retrieval, so the referent is recorded here.
+            # Without it the three cached demo questions would leave nothing to carry
+            # forward, and the demo's own follow-ups would lose their scheme.
+            if history is not None:
+                history.remember(text)
             cached.trace = _trace(
                 text,
                 guards={"cache": "hit"},
@@ -283,7 +305,9 @@ def answer_question(
 
     retrieve_started = time.perf_counter()
     try:
-        result = retrieve(text, top_k=cfg.top_k, min_similarity=cfg.min_similarity)
+        result = retrieve(
+            search_text, top_k=cfg.top_k, min_similarity=cfg.min_similarity, scheme_id=carried
+        )
     except Exception as exc:
         latency["retrieve"] = _latency_ms(retrieve_started)
         answer = _error(exc, _trace(text, guards=guards, latency=latency))
@@ -291,6 +315,8 @@ def answer_question(
         _log(answer, guards, latency)
         return answer
     latency["retrieve"] = _latency_ms(retrieve_started)
+    if history is not None:
+        history.remember(text, result.resolved_scheme_id)
 
     guards = {
         "intent": "factual_or_unknown",
@@ -299,6 +325,9 @@ def answer_question(
         "hits": len(result.hits),
         "top_score": round(result.top_score, 4),
     }
+    if carried:
+        guards["carried_scheme_id"] = carried
+        guards["query_expanded"] = search_text != text
 
     # ---- threshold abstain: still no LLM call --------------------------------------
     if not result.passed:

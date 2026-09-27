@@ -29,7 +29,7 @@ Last updated from sources: 2026-09-27
 - Status: `answered` (expected `answered`)
 - Last updated from sources: see answer
 - Sentences (answer body only): 2 (cap 3)
-- Latency: 901 ms
+- Latency: 2122 ms
 - Guards: `{"intent": "factual_or_unknown", "scheme_id": "S1", "filtered": true, "hits": 10, "top_score": 0.8874, "llm_calls": 1}`
 - Top chunk: `S1__overview__0008` score 0.8874 — HDFC Large Cap Fund - Direct - Growth — Expense ratio
 - Expected fact present in retrieved context: yes
@@ -53,7 +53,7 @@ Last updated from sources: 2026-09-27
 - Status: `answered` (expected `answered`)
 - Last updated from sources: see answer
 - Sentences (answer body only): 1 (cap 3)
-- Latency: 16 ms
+- Latency: 17 ms
 - Guards: `{"intent": "factual_or_unknown", "scheme_id": "S3", "filtered": true, "hits": 10, "top_score": 0.7475, "llm_calls": 1}`
 - Top chunk: `S3__sebi_elss__0003` score 0.7475 — HDFC ELSS Tax Saver Fund - Direct - Growth — How ELSS Works
 - Expected fact present in retrieved context: yes
@@ -77,7 +77,7 @@ Last updated from sources: 2026-09-27
 - Status: `answered` (expected `answered`)
 - Last updated from sources: see answer
 - Sentences (answer body only): 1 (cap 3)
-- Latency: 15 ms
+- Latency: 14 ms
 - Guards: `{"intent": "factual_or_unknown", "scheme_id": "S2", "filtered": true, "hits": 10, "top_score": 0.7799, "llm_calls": 1}`
 - Top chunk: `S2__overview__0000` score 0.7799 — HDFC Equity (Flexi Cap) Fund - Direct - Growth
 - Expected fact present in retrieved context: yes
@@ -100,7 +100,7 @@ Last updated from sources: 2026-09-27
 - Status: `answered` (expected `answered`)
 - Last updated from sources: see answer
 - Sentences (answer body only): 1 (cap 3)
-- Latency: 15 ms
+- Latency: 14 ms
 - Guards: `{"intent": "factual_or_unknown", "scheme_id": "S4", "filtered": true, "hits": 10, "top_score": 0.8054, "llm_calls": 1}`
 - Top chunk: `S4__overview__0011` score 0.8054 — HDFC Small Cap Fund - Direct - Growth — Understand terms > Exit load
 - Expected fact present in retrieved context: yes
@@ -124,7 +124,7 @@ Last updated from sources: 2026-09-27
 - Status: `answered` (expected `answered`)
 - Last updated from sources: see answer
 - Sentences (answer body only): 1 (cap 3)
-- Latency: 15 ms
+- Latency: 21 ms
 - Guards: `{"intent": "factual_or_unknown", "scheme_id": "S5", "filtered": true, "hits": 10, "top_score": 0.7541, "llm_calls": 1}`
 - Top chunk: `S5__overview__0015` score 0.7541 — HDFC Balanced Advantage Fund - Direct - Growth — Holdings ( 326 )
 - Expected fact present in retrieved context: yes
@@ -147,7 +147,7 @@ Last updated from sources: 2026-09-27
 - Status: `answered` (expected `answered`)
 - Last updated from sources: see answer
 - Sentences (answer body only): 1 (cap 3)
-- Latency: 17 ms
+- Latency: 19 ms
 - Guards: `{"intent": "factual_or_unknown", "scheme_id": null, "filtered": false, "hits": 10, "top_score": 0.4879, "llm_calls": 1}`
 - Top chunk: `GEN__tax_regime__0003` score 0.4879 — General - AMFI/SEBI investor education — NOTES:
 - Expected fact present in retrieved context: yes
@@ -170,7 +170,7 @@ Learn more: https://www.amfiindia.com/investor/knowledge-center-info?zoneName=Ca
 - [Educational reference (performance)](https://www.amfiindia.com/investor/knowledge-center-info?zoneName=CategorizationOfMutualFundSchemes)
 
 - Sentences (answer body only): 6 (cap 3)
-- Latency: 11 ms
+- Latency: 9 ms
 - Guards: `{"intent": "performance", "refused": true, "rule": "performance_term", "pii_types": [], "scheme_id": null}`
 - Citation link check: ok
 
@@ -190,7 +190,7 @@ Learn more: https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
 - [Educational reference (advice)](https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth)
 
 - Sentences (answer body only): 6 (cap 3)
-- Latency: 24 ms
+- Latency: 18 ms
 - Guards: `{"intent": "advice", "refused": true, "rule": "advice_term", "pii_types": [], "scheme_id": "S4"}`
 - Citation link check: ok
 
@@ -210,7 +210,7 @@ Learn more: https://www.amfiindia.com/investor/knowledge-center-info?zoneName=Ca
 - [Educational reference (out_of_scope)](https://www.amfiindia.com/investor/knowledge-center-info?zoneName=CategorizationOfMutualFundSchemes)
 
 - Sentences (answer body only): 5 (cap 3)
-- Latency: 1 ms
+- Latency: 0 ms
 - Guards: `{"intent": "out_of_scope", "refused": true, "rule": "out_of_corpus_token", "pii_types": [], "scheme_id": null}`
 - Citation link check: ok
 

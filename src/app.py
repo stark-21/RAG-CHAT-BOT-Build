@@ -11,6 +11,7 @@ import streamlit as st
 
 from src.config import Settings, get_settings
 from src.pipeline import answer_question
+from src.retrieval.memory import TurnBuffer
 from src.types import Answer
 
 SCOPE_LINE = "Scope: HDFC AMC — 5 schemes"
@@ -182,7 +183,9 @@ def ask(query: str, settings: Settings) -> None:
         st.markdown(query)
     with st.chat_message("assistant"):
         with st.spinner("Checking the sources…"):
-            answer = answer_question(query, settings=settings)
+            answer = answer_question(
+                query, settings=settings, history=st.session_state.memory
+            )
         render(answer)
         render_trace(answer)
         render_latency(answer)
@@ -210,6 +213,9 @@ def main() -> None:
         return
 
     st.session_state.setdefault("messages", [])
+    # Session-scoped only (NFR-8): the last 10 questions, used to scope a follow-up to a
+    # scheme. Never written to disk, and never handed to the model.
+    st.session_state.setdefault("memory", TurnBuffer())
 
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
