@@ -1,8 +1,10 @@
 # Render Blueprint - https://render.com/docs/blueprint-spec
 #
-# This file is the source of truth for the Render deployment. Edit here instead
-# of retyping the build/start commands into the Render dashboard, so a typo
-# (e.g. src.ingest.run, which does not exist) cannot silently break a deploy.
+# This file is the source of truth for the deployment. Adopt it from the Render
+# dashboard with New > Blueprint > Connect, and Render applies this configuration
+# to the existing rag-chat-bot-build service by name and redeploys it. That is
+# the only supported way to set a start command from the repo - Render ignores
+# Procfiles and does no framework autodetection for Python.
 #
 # data/chroma/ is gitignored, so Render receives the corpus but NOT the vector
 # index. The build command therefore constructs the index from the committed
@@ -14,7 +16,13 @@
 
 services:
   - type: web
-    name: hdfc-mf-rag-chatbot
+    # This MUST match the name of the service that already exists in the Render
+    # dashboard. On Blueprint sync, Render matches existing resources by name and
+    # then applies this file's configuration to them - which is what preserves the
+    # rag-chat-bot-build.onrender.com URL instead of creating a second, suffixed
+    # service. Renaming it here would orphan the current service.
+    name: rag-chat-bot-build
+    repo: https://github.com/stark-21/RAG-CHAT-BOT-Build
     runtime: python
     plan: free # bump to "starter" if the instance is OOM-killed on boot
 
@@ -29,14 +37,14 @@ services:
       && python -m src.ingest.build_index --stage embed
       && python -m src.ingest.build_index --stage store
 
-    # THIS MUST BE SET. If the Start Command is left blank in the Render
-    # dashboard, Render auto-detects the framework, assumes FastAPI/Starlette and
-    # runs "uvicorn src.app:app", which fails with:
+    # THIS MUST BE SET, and it is what an empty Start Command field breaks.
+    # Render does not autodetect frameworks for Python services and ignores
+    # Procfiles entirely ("no Procfile, no buildpack autodetection magic" - Render
+    # docs). Left blank, it falls back to a FastAPI-shaped default:
+    #   Running 'uvicorn src.app:app --host 0.0.0.0 --port $PORT'
     #   ERROR: Error loading ASGI app. Attribute "app" not found in module "src.app"
     #   Exited with status 3
-    # because src/app.py is a Streamlit script with no ASGI "app" object. A
-    # Procfile at the repo root carries the same command as a second line of
-    # defence, but do not rely on it - set the field.
+    # because src/app.py is a Streamlit script with no ASGI "app" object.
     #
     # "python -m streamlit" is also deliberate rather than bare "streamlit":
     # -m prepends the working directory to sys.path. src/app.py additionally
