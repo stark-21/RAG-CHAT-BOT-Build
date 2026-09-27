@@ -7,12 +7,25 @@ what a user sees is exactly what the pipeline decided and nothing is re-decided 
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 import streamlit as st
 
-from src.config import Settings, get_settings
-from src.pipeline import answer_question
-from src.retrieval.memory import TurnBuffer
-from src.types import Answer
+# The repository root has to be importable before the "from src..." lines below.
+# Streamlit puts the *script's* own directory (src/) on sys.path rather than its
+# parent, so "streamlit run src/app.py" leaves "import src.config" unresolvable
+# and the app dies at import time with ModuleNotFoundError: No module named 'src'.
+# Seeding the root here makes the entry point behave the same however it is
+# launched: "streamlit run", "python -m streamlit", or an absolute script path.
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+
+from src.config import Settings, get_settings  # noqa: E402
+from src.pipeline import answer_question  # noqa: E402
+from src.retrieval.memory import TurnBuffer  # noqa: E402
+from src.types import Answer  # noqa: E402
 
 SCOPE_LINE = "Scope: HDFC AMC — 5 schemes"
 
