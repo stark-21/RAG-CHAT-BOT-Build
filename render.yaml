@@ -24,7 +24,17 @@ services:
     name: rag-chat-bot-build
     repo: https://github.com/stark-21/RAG-CHAT-BOT-Build
     runtime: python
-    plan: free # bump to "starter" if the instance is OOM-killed on boot
+
+    # MEASURED, not guessed: the app peaks at ~620 MB RSS serving one question
+    # (~266 MB after streamlit+torch+config, ~590 MB once the MiniLM encoder is
+    # resident, ~620 MB with Chroma loaded and a query answered).
+    #
+    # Render's free tier is 512 MB and "starter" is 0.5c-512mb - also 512 MB - so
+    # BOTH get OOM-killed on boot. "standard" (1c-2g, 2 GB) is the cheapest plan
+    # with room for torch + the encoder. Free tier would also give only 0.1 CPU.
+    # standard is a paid plan; to stay on free instead, the embedder has to be
+    # ported off torch onto onnxruntime, which is the only large allocation here.
+    plan: standard
 
     # PYTHON_VERSION is intentionally left unset: Render's default resolved to
     # 3.14 during testing, and the local interpreter that passes all 388 tests
