@@ -270,7 +270,7 @@ answer's own "Why this answer?" panel.
 ## Tests
 
 ```powershell
-python -m pytest              # 376 tests
+python -m pytest              # 388 tests
 ```
 
 The suite runs entirely offline against the stub and a real Chroma collection. It covers

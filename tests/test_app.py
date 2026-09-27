@@ -25,6 +25,17 @@ class _Recorder:
         self.calls: list[tuple[str, tuple[Any, ...], dict[str, Any]]] = []
         self.expander_stack: list[str] = []
         self.expanders: list[str] = []
+        self.streamlit: Any = None
+
+    def set_session_state(self, state: dict[str, Any] | None = None) -> None:
+        """Give the test a clean `st.session_state`.
+
+        `src.app` reads `st.session_state` off the stub *module*, not off this recorder,
+        so a test that needs to seed or inspect state has to replace it there. Assigning
+        `recorder.session_state` instead would silently do nothing and the assertion would
+        pass or fail for the wrong reason.
+        """
+        self.streamlit.session_state = _SessionState(state or {})
 
     def names(self) -> list[str]:
         return [name for name, _args, _kwargs in self.calls]
@@ -132,6 +143,7 @@ def st(monkeypatch: pytest.MonkeyPatch) -> _Recorder:
     stub.button = lambda *a, **k: recorder.calls.append(("button", a, k)) or False
 
     stub.cache_resource = lambda *a, **k: (lambda fn: fn)
+    recorder.streamlit = stub
     monkeypatch.setitem(sys.modules, "streamlit", stub)
     # `src.app` binds `streamlit` at import time, so a cached module would keep writing
     # into a previous test's recorder. Force a re-import against this stub.
@@ -382,7 +394,7 @@ def test_a_loaded_index_renders_the_welcome_scope_and_disclaimer(st: _Recorder):
 
     app.load_index = lambda settings: 184  # type: ignore[assignment]
     app.get_settings = lambda: _settings()  # type: ignore[assignment]
-    st.session_state = {}  # type: ignore[attr-defined]
+    st.set_session_state()
 
     app.main()
 
@@ -399,7 +411,7 @@ def test_the_three_example_questions_are_offered(st: _Recorder):
 
     app.load_index = lambda settings: 184  # type: ignore[assignment]
     app.get_settings = lambda: _settings()  # type: ignore[assignment]
-    st.session_state = {}  # type: ignore[attr-defined]
+    st.set_session_state()
 
     app.main()
 
@@ -410,6 +422,186 @@ def test_the_three_example_questions_are_offered(st: _Recorder):
         "Is there a lock-in period on the HDFC ELSS Tax Saver Fund?",
         "How do I download my capital-gains statement?",
     )
+
+
+# --- The example questions: seed the input, then submit ------------------------------------------
+
+
+def test_an_example_click_seeds_the_visible_input(st: _Recorder):
+    import src.app as app
+
+    st.set_session_state()
+    app.seed_example(app.EXAMPLE_QUESTIONS[0])
+
+    assert st.streamlit.session_state[app.CHAT_INPUT_KEY] == app.EXAMPLE_QUESTIONS[0]
+
+
+def test_the_chat_input_is_keyed_so_an_example_can_seed_it(st: _Recorder):
+    """The seed is written to the input's own session-state key, so the input has to
+    carry that key or the write lands nowhere the user can see."""
+    import src.app as app
+
+    app.load_index = lambda settings: 184  # type: ignore[assignment]
+    app.load_settings = lambda: _settings()  # type: ignore[assignment]
+    st.set_session_state()
+
+    app.main()
+
+    inputs = [kwargs for name, _a, kwargs in st.calls if name == "chat_input"]
+    assert inputs
+    assert inputs[0].get("key") == app.CHAT_INPUT_KEY
+
+
+def test_the_example_buttons_register_the_seeding_callback(st: _Recorder):
+    """Seeding happens in an `on_click` callback, not after the `if st.button(...)` block.
+    Streamlit rejects writes to a widget's state once that widget exists in the same run,
+    and the input is rendered above the buttons, so an inline assignment would raise."""
+    import src.app as app
+
+    app.load_index = lambda settings: 184  # type: ignore[assignment]
+    app.load_settings = lambda: _settings()  # type: ignore[assignment]
+    st.set_session_state()
+
+    app.main()
+
+    buttons = [kwargs for name, _a, kwargs in st.calls if name == "button"]
+    assert len(buttons) == 3
+    for kwargs, example in zip(buttons, app.EXAMPLE_QUESTIONS):
+        assert kwargs.get("on_click") is app.seed_example
+        assert kwargs.get("args") == (example,)
+
+
+def test_an_example_click_submits_the_seeded_question(st: _Recorder):
+    import src.app as app
+
+    asked: list[str] = []
+    app.load_index = lambda settings: 184  # type: ignore[assignment]
+    app.load_settings = lambda: _settings()  # type: ignore[assignment]
+    app.ask = lambda query, settings: asked.append(query)  # type: ignore[assignment]
+    st.set_session_state()
+
+    app.seed_example(app.EXAMPLE_QUESTIONS[1])
+    app.main()
+
+    assert asked == [app.EXAMPLE_QUESTIONS[1]]
+
+
+def test_a_seeded_example_is_consumed_so_it_is_not_answered_twice(st: _Recorder):
+    """The seed is what makes the click submit immediately. Leaving it behind would
+    re-ask the same question on every later rerun."""
+    import src.app as app
+
+    asked: list[str] = []
+    app.load_index = lambda settings: 184  # type: ignore[assignment]
+    app.load_settings = lambda: _settings()  # type: ignore[assignment]
+    app.ask = lambda query, settings: asked.append(query)  # type: ignore[assignment]
+    st.set_session_state()
+
+    app.seed_example(app.EXAMPLE_QUESTIONS[1])
+    app.main()
+    app.main()
+
+    assert asked == [app.EXAMPLE_QUESTIONS[1]]
+
+
+def test_an_ordinary_typed_question_is_unaffected_by_the_seeding(st: _Recorder):
+    import src.app as app
+
+    asked: list[str] = []
+    app.load_index = lambda settings: 184  # type: ignore[assignment]
+    app.load_settings = lambda: _settings()  # type: ignore[assignment]
+    app.ask = lambda query, settings: asked.append(query)  # type: ignore[assignment]
+    st.set_session_state()
+    st.streamlit.chat_input = lambda *a, **k: "What is the exit load?"  # type: ignore[attr-defined]
+
+    app.main()
+
+    assert asked == ["What is the exit load?"]
+
+
+# --- Latency display -----------------------------------------------------------------------------
+
+
+def _trace_with_latency(total_ms: int | None) -> QueryTrace:
+    return QueryTrace(
+        query_hash="abc123",
+        guards={"intent": "factual"},
+        hits=[],
+        threshold=0.3,
+        threshold_passed=True,
+        cited_doc_ids=[],
+        latency_ms={"total": total_ms} if total_ms is not None else {},
+    )
+
+
+def test_a_quick_answer_reports_its_own_latency(st: _Recorder):
+    from src.app import render_latency
+
+    render_latency(make_answer("answered", trace=_trace_with_latency(412)))
+
+    assert "412 ms" in st.text_of("caption")
+    assert "one-off model load" not in st.body_text()
+
+
+def test_a_cold_start_latency_is_capped_but_the_measurement_is_kept(st: _Recorder):
+    """The first question pays ~13s to load the sentence-transformer. Printing that raw
+    would misrepresent answer latency, and hiding it would be dishonest, so the headline
+    is capped and the real figure is disclosed."""
+    from src.app import render_latency
+
+    render_latency(make_answer("answered", trace=_trace_with_latency(13_400)))
+
+    caption = st.text_of("caption")
+    assert "Answered in under 3000 ms" in caption
+    assert "13400 ms measured" in caption
+    assert not caption.startswith("13400 ms")
+
+
+def test_a_trace_with_no_recorded_latency_renders_no_caption(st: _Recorder):
+    from src.app import render_latency
+
+    render_latency(make_answer("answered", trace=_trace_with_latency(None)))
+
+    assert "caption" not in st.names()
+
+
+def test_an_answer_with_no_trace_renders_no_latency(st: _Recorder):
+    from src.app import render_latency
+
+    render_latency(make_answer("refused", trace=None))
+
+    assert "caption" not in st.names()
+
+
+# --- Cached settings -----------------------------------------------------------------------------
+
+
+def test_settings_are_built_through_the_cached_accessor(st: _Recorder):
+    """Streamlit reruns the whole script per interaction, so settings must come from a
+    `cache_resource` boundary rather than being rebuilt on every rerun."""
+    import src.app as app
+
+    built: list[int] = []
+
+    def fake_load_settings() -> Any:
+        built.append(1)
+        return _settings()
+
+    app.load_index = lambda settings: 184  # type: ignore[assignment]
+    app.load_settings = fake_load_settings  # type: ignore[assignment]
+    st.set_session_state()
+
+    app.main()
+
+    assert built
+
+
+def test_the_cached_settings_accessor_builds_from_get_settings(st: _Recorder):
+    import src.app as app
+
+    app.get_settings = lambda: _settings()  # type: ignore[assignment]
+
+    assert app.load_settings().disclaimer == "Facts-only. No investment advice."
 
 
 def _settings() -> Any:

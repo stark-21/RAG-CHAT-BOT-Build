@@ -23,6 +23,11 @@ def _clean_env(monkeypatch):
         "REQUEST_DELAY_SECONDS",
     ):
         monkeypatch.delenv(key, raising=False)
+    # Deleting the variables is not enough on its own: `get_settings()` re-reads `.env` on
+    # every call, so a developer with a real `LLM_API_KEY` in that file has it injected
+    # again and the "no key configured" tests fail. These tests are named for running
+    # *without* an env file, so the file must not be consulted at all.
+    monkeypatch.setattr(config, "load_dotenv", lambda *a, **k: False)
     config.reset_settings_cache()
     yield
     config.reset_settings_cache()
