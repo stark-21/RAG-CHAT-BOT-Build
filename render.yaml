@@ -1,0 +1,57 @@
+# Render Blueprint - https://render.com/docs/blueprint-spec
+#
+# This file is the source of truth for the Render deployment. Edit here instead
+# of retyping the build/start commands into the Render dashboard, so a typo
+# (e.g. src.ingest.run, which does not exist) cannot silently break a deploy.
+#
+# data/chroma/ is gitignored, so Render receives the corpus but NOT the vector
+# index. The build command therefore constructs the index from the committed
+# snapshots in data/raw/ + data/processed/chunks.jsonl. It deliberately avoids
+# "--rebuild", which re-scrapes all 10 documents and fails on the HDFC 403s.
+#
+# Start command is self-healing: Render's filesystem is ephemeral, so the index
+# is rebuilt only when data/chroma/ is missing (e.g. after a restart).
+
+services:
+  - type: web
+    name: hdfc-mf-rag-chatbot
+    runtime: python
+    plan: free # bump to "starter" if the instance is OOM-killed on boot
+
+    # PYTHON_VERSION is intentionally left unset: Render's default resolved to
+    # 3.14 during testing, and the local interpreter that passes all 388 tests
+    # is also 3.14.2 (torch-2.14.0+cpu, cp314 wheels).
+    rootDir: # repository root - src/, data/ and requirements.txt all live here
+
+    buildCommand: >-
+      pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+      && pip install --no-cache-dir -r requirements.txt
+      && python -m src.ingest.build_index --stage embed
+      && python -m src.ingest.build_index --stage store
+
+    startCommand: >-
+      sh -c "test -d data/chroma || (python -m src.ingest.build_index --stage embed && python -m src.ingest.build_index --stage store); streamlit run src/app.py --server.port $PORT --server.address 0.0.0.0"
+
+    healthCheckPath: /_stcore/health
+
+    # All values below match the defaults already in src/config.py; they are
+    # pinned here so the deployed behaviour is explicit and reproducible.
+    envVars:
+      - key: HF_HOME
+        value: ./.cache/hf # keep the model cache inside the project
+      - key: LLM_PROVIDER
+        value: stub # offline; switch to "hosted" + LLM_API_KEY for a real LLM
+      - key: EMBEDDING_MODEL
+        value: sentence-transformers/all-MiniLM-L6-v2
+      - key: CHROMA_DIR
+        value: data/chroma
+      - key: COLLECTION_NAME
+        value: mf_faq
+      - key: TOP_K
+        value: "10"
+      - key: MIN_SIMILARITY
+        value: "0.30"
+      - key: DISCLAIMER
+        value: "Facts-only. No investment advice."
+
+    autoDeploy: true
