@@ -1,0 +1,15 @@
+# P8 UI configuration.
+#
+# The bar under the title is a caption; the first user-visible content must not sit far
+# below the fold, so the default top padding is trimmed rather than left at Streamlit's
+# larger default.
+[theme]
+base = "light"
+primaryColor = "#0b3d91"
+
+[server]
+# No usage telemetry from a graded demo, and headless=false keeps the local run quiet.
+headless = true
+
+[browser]
+gatherUsageStats = false

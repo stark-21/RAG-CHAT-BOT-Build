@@ -1,0 +1,26 @@
+{
+  "doc_id": "S1__overview",
+  "scheme_id": "S1",
+  "scheme_name": "HDFC Large Cap Fund - Direct - Growth",
+  "category": "Large Cap",
+  "doc_type": "scheme_page",
+  "title": "HDFC Large Cap Fund - Direct - Growth - scheme page",
+  "source_url": "https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth",
+  "publisher": "HDFC AMC (via Groww)",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "8700585ab32a70e5b4a76161e26dcfb51423e084c196a6586c623cb9c433340b",
+  "raw_path": "data\\raw\\S1\\S1__overview.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 8485,
+    "lines": 202,
+    "headings_marked": 26,
+    "content_root": "class:pw14MainWrapper.layout-container",
+    "tables_found": 4,
+    "tables_kept": 1,
+    "tables_dropped": 3,
+    "lines_dropped": 16
+  },
+  "note": ""
+}

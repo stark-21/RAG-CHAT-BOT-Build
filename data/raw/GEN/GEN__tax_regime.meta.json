@@ -1,0 +1,26 @@
+{
+  "doc_id": "GEN__tax_regime",
+  "scheme_id": "GEN",
+  "scheme_name": "General - AMFI/SEBI investor education",
+  "category": "General",
+  "doc_type": "guide",
+  "title": "Tax Regime for Mutual Funds",
+  "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=TaxRegimeForMutualFunds",
+  "publisher": "AMFI",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "d68f02feeda783a5e6e708b2772687180705ac0636ed6e7d48565bd4f877087c",
+  "raw_path": "data\\raw\\GEN\\GEN__tax_regime.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 14875,
+    "lines": 102,
+    "headings_marked": 34,
+    "content_root": "body",
+    "tables_found": 0,
+    "tables_kept": 0,
+    "tables_dropped": 0,
+    "lines_dropped": 2
+  },
+  "note": ""
+}

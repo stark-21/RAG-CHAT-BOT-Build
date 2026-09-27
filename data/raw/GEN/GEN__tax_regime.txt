@@ -1,0 +1,102 @@
+/
+Investor Corner
+/
+Tax Regime for Mutual Funds
+## Tax Regime for Mutual Funds
+Applicable for the Financial Year 2024-25
+## I. Tax Rates for Mutual Fund Investors
+Tax & TDS are subject to applicable Surcharge and Health & Education Cess at the rate of 4%. Please see the Notes below
+###### NOTES:
+Provided that the mutual fund units are held as capital assets.
+Capital gains arising on the transfer or redemption of equity-oriented units held for a period of more than 12 months, immediately preceding the date of transfer, should be regarded as 'long-term capital gains'.
+Further, cost of acquisition to compute long-term capital gains is to be higher of (a) Actual cost of acquisition; and (b) Lower of (i) fair market value as on 31 January 2018; and (ii) full value of consideration received upon transfer.
+As per section 111A of the Income-tax Act, 1961 (the Act) short-term capital gains on transfer of units before 23 July 2024 of EOFs shall be taxable @15% and for transfer on or after 23 July 2024 shall be taxable @20%.
+As per section 112A of the Act, long-term capital gains, exceeding ₹ 1,25,000, on transfer of units of EOFs before 23 July 2024 shall be taxable at the rate of 10% and on transfer of units on or after 23 July 2024 shall be taxable at the rate of 12.5% provided transfer of such units is subject to STT, without giving effect to first and second proviso to section 48 i.e., without taking benefit of foreign currency fluctuation and indexation benefit.
+Finance Act 2023 has introduced section 50AA which provides that any gains on transfer / redemption of units of specified mutual funds acquired on or after 1 April 2023 are deemed as short-term capital gains. For the purposes of section 50AA, “specified mutual fund” means a mutual fund by whatever name called, where not more than 35% of its total proceeds is invested in the equity shares of domestic companies.
+An “equity-oriented fund” which invests in units of another fund instead of investing directly in equity shares of domestic company may be regarded as “specified mutual fund” as per section 50AA of the Act and taxed accordingly.
+As per the Finance (No. 2) Act 2024 (applicable from financial year 2025-26) the “specified mutual fund” means:
+a mutual Fund by whatever name called, which invest more than sixty five percent of the total proceeds in debt and money market instrument or;
+a fund which invests sixty five percent or more of its proceeds in units of fund referred to in sub-clause (a)
+For this purpose, “debt and money market instruments” shall include any securities, by whatever name called, classified or regulated as debt and money market instruments by the Securities and Exchange Board of India (SEBI).
+Accordingly, as per the amended definition, which is applicable from FY 2025-26, only debt oriented mutual fund schemes (including fund of fund) should be covered within the ambit of section 50AA of the Act.
+Various Categories of MF Schemes which fall under "Specified Mutual Funds" for FY 2024-25
+Fund of funds as defined under the “Equity Oriented Fund” definition under section 112A of the Act
+Liquid Funds /Money Market Funds / Income Funds (Debt Funds) / Gilt Funds
+Gold ETFs / Bond ETF / Liquid ETF
+Fund Of Funds (Domestic)
+Fund Of Funds Investing Overseas
+Infrastructure Debt Funds
+Capital gains arising on transfer or redemption of Units of schemes other than EOF and other than specified mutual fund as per section 50AA of the Act shall be regarded as long-term capital gains, if such units are held for a period of more than 12 months (in case of listed units)/24 months (in case of unlisted units) immediately preceding the date of such transfer (i.e. on or after 23 July 2024). If the transfer take place before 23 July 2024, then capital gains arising on transfer or redemption of such units shall be regarded as long-term capital gains, if such units are held for a period of more than 36 months.
+If a company decides to opt for the new taxation regime as per the Taxation Law Amendment Act, 2019, then tax shall be levied at the rate of 22%. i.e., the lower rate of 22% is optional and subject to fulfilment of certain conditions as provided in section 115BAA.
+As per section 115BAB, the new domestic manufacturing companies may opt for beneficial tax rate of 15% subject to prescribed conditions. Furthermore, the first proviso to Section 115BAB provides that any income which is not derived from nor is incidental to manufacturing or production of an article/ thing and in respect of which no specific tax rate is specified under Chapter XII of the Act, would be taxable at 22% and no deduction would be allowed while computing such income.
+Tax shall be levied @ 25%, if the total turnover or gross receipts of the financial year 2022-23 does not exceed ₹ 400 crores. Further, the domestic companies are subject to minimum alternate tax (except for those who opt for lower rate of tax of 22%) not specified in above tax rates.
+As per section 112 of the Act, any income arising from the transfer of long-term capital asset, which is chargeable under head capital gains shall be taxable at 20% with indexation benefit if the transfer takes place before 23 July 2024 and at 12.5% without indexation benefit if transfer take place on or after 23 July 2024.
+As per section 112 of the Act, in case of NRIs, any income arising from the transfer of long-term capital asset, which is chargeable under head capital gains shall be taxable @ 10% on transfer of capital assets, being unlisted securities, computed without giving effect to first and second proviso to section 48 i.e., without taking benefit of foreign currency fluctuation and indexation benefit or @ 20% with indexation benefit if the transfer takes place before 23 July 2024. In case, if transfer takes place on or after 23 July 2024, such income shall be taxable @ 12.5% without indexation.
+There shall be no TDS deductible if dividend income paid / credited in respect of units of a mutual fund is below ₹ 5,000 in a financial year.
+Tax to be deducted at source at the rate of 20% or at the rate specified under the relevant double tax avoidance agreement, whichever is lower as per section 196A of the Act.
+Securities Transaction Tax ('STT') is applicable only in respect of sale of units of Equity-oriented funds (EOFs) on a recognised stock exchange and on repurchase (redemption) of units of EOFs by the mutual fund. STT in not applicable in respect of purchase/ sale/ redemption of units of other schemes (other than EOFs).
+Securities Transaction Tax (STT) in respect of Units equity-oriented mutual fund Schemes
+Surcharge Rate as a percentage of Income-tax
+In addition, “Health and Education Cess” @ 4% shall be applicable on aggregate of base tax and surcharge.
+* The surcharge rate applicable to capital gains taxable under section 112, 112A and 111A of the Act is capped to 15%.
+*In case investor is opting for ‘New Tax Regime’ under section 115BAC (1A) of the Act , the rate of surcharge is capped at 25%.
+** The surcharge rates in the case of an association of persons consisting of only companies as its members as under —
+Non-resident individuals (NRI) shall be entitled to be governed by provisions of the applicable Tax Treaty, which India has entered with the country of residence of the NRI, if that is more beneficial than the provisions of the Act , subject to certain conditions. As per section 90(4) of the Act, a non-resident shall not be entitled to claim treaty benefits, unless the non-resident obtains a Tax Residency Certificate of being a resident of home country. Furthermore, as per section 90(5) of the Act, non-resident is also required to provide such other documents and information, as prescribed by CBDT, as applicable.
+Relaxation to NRIs from deduction of tax at higher rate (except income distributed by mutual fund) in the absence of Permanent Account Number (PAN) is subject to the NRI providing specified information and documents. As per provisions of Section 206AA of the Act, if there is default on the part of a NRI (entitled to receive redemption proceeds from the Mutual Fund on which tax is deductible under Chapter XVII of the Act) to provide its PAN, the tax shall be deducted at higher of the following rates: i) rates specified in relevant provisions of the Act; or ii) rate or rates in force; or iii) rate of 20%. However, the provisions of section 206AA of the Act shall not apply, if the requirements as stated in Rule 37BC of the Income-tax Rules, 1962, are met.
+Section 206AB of the Act provides for higher rate for TDS for the non-filers of income-tax return. The TDS rate in this section is higher of the following rates: i) twice the rate specified in the relevant provision of the Act; or ii) twice the rate or rates in force; or iii) the rate of five per cent. However, the said provision does not apply to a non-resident who does not have a permanent establishment in India and a person who is not required to furnish the return of income for the assessment year relevant to the said previous year and is notified by the Central Government in the Official Gazette in this behalf.
+## II. OTHER TAX PROVISIONS
+Capital gains arising on Transfer of units upon consolidation of mutual fund schemes of two or more schemes of EOFs or two or more schemes of a Scheme other than EOF in accordance with SEBI (Mutual Funds) Regulations, 1996 is exempt from capital gains tax.
+Likewise, Capital gains arising on Transfer of units upon consolidation of Plans within a mutual fund scheme in accordance with SEBI (Mutual Funds) Regulations, 1996 is exempt from capital gains tax.
+Currently, switching units of mutual fund within the same scheme from Growth Plan to Dividend Plan and vice-versa is subject to capital gains tax.
+Creation of segregated portfolio: SEBI has permitted creation of segregated portfolio of debt and money market instruments by mutual fund schemes in certain situations. As per the said SEBI circular, all existing unit holders in the affected mutual fund scheme as on the date of the credit event shall be allotted equal number of units in the segregated portfolio as held in the main portfolio. As per sub-sections (2AG) and (2AH) to Section 49 of the Act, cost of acquisition of a unit or units in a segregated portfolio shall be the amount which bears to the cost of acquisition of a unit or units held by the assessee in the total portfolio in the same proportion as the net asset value of the asset transferred to the segregated portfolio bears to the net asset value of the total portfolio immediately before the segregation of portfolios. Further, the cost of acquisition of the original units held by the unit holder in the main portfolio shall be reduced by the amount as so arrived for the units of segregated portfolio.
+An Equity Oriented Mutual Fund has been defined in section 112A of the Act. As per the said definition, a fund of fund scheme structure shall be treated as an Equity Oriented Fund where the fund invests in units of another fund which is traded on recognised stock exchange::
+a minimum of ninety per cent of the total proceeds of such fund is invested in the units of such other fund; and
+such other fund also invests a minimum of ninety per cent of its total proceeds in the equity shares of domestic companies listed on a recognised stock exchange
+Thus, if a fund invests in units of other funds and fulfills the aforementioned criteria, then it shall be regarded as Equity Oriented Fund. However, if the aforementioned conditions are not fulfilled, then the same shall be regarded as other than Equity Oriented Fund and subjected to the same tax treatment as applicable to a non-equity-oriented fund.
+However, section 50AA of the Act deems any gains on transfer / redemption of units of specified mutual funds acquired on or after 1 April 2023 as short-term capital gains. For the purposes of section 50AA, “specified mutual fund” means a mutual fund by whatever name called, where not more than 35% of its total proceeds is invested in the equity shares of domestic companies. Accordingly, an “equity-oriented fund” which invests in units of another fund instead of investing directly in equity shares of domestic company may be regarded as “specified mutual fund” as per section 50AA of the Act and taxed accordingly.
+The Finance (No. 2) Act 2024 has further amended the definition of the specified mutual fund (applicable from financial year 2025-26) and as per amended definition “specified mutual fund” means “(a) a mutual Fund by whatever name called, which invest more than sixty five percent of the total proceeds in debt and money market instrument or; (b) a fund which invests sixty five percent or more of its proceeds in units of fund referred to in sub-clause (a)”.
+For this purpose “debt and money market instruments” shall include any securities, by whatever name called, classified or regulated as debt and money market instruments by the SEBI.
+Accordingly, as per the amended definition, which is applicable from FY 2025-26, only debt oriented mutual fund schemes (including fund of fund) should be covered within the ambit of section 50AA of the Act.
+Bonus Stripping:
+As per Section 94(8), the loss due to sale of original units in the schemes, where bonus units are issued, will not be available for set off; if original units are: (A) bought within three months prior to the record date fixed for allotment of bonus units; and (B) sold within nine months after the record date fixed for allotment of bonus units. However, the amount of loss so ignored shall be deemed to be the cost of purchase or acquisition of such unsold bonus units held on the date of transfer of original units. The provision of this sub section are also applicable to securities. Further, the definitions of the terms “unit” and “record date” also include the units of business trusts (i.e. Real Estate Investment Trusts [REITs]/ Infrastructure Investment Trusts [InvITs]) and units of Alternate Investment Funds in the ambit of the said section.
+##### What's Covered?
+###### I. Tax Rates for Mutual Fund Investors
+###### II. OTHER TAX PROVISIONS
+##### Related Topics
+##### Know Your Customer (KYC)
+##### Nomination
+##### Types of MF Schemes
+### Light
+### Dark
+Investor
+Distributor
+Research & Information
+About AMFI
+Search
+Association of Mutual Funds in India
+CIN- U65991MH1995NPL092062
+Know About AMFI
+#### About AMFI
+#### Objectives
+#### Board of Directors
+#### AMFI Executives
+#### Committees
+#### View More
+Media
+#### Press Release
+#### AMFI Publications
+#### AMFI Mutual Fund Summit
+#### Gallery
+#### Videos
+Other Links
+#### Schedule of Investor Awareness Program
+#### AMC Branches
+#### Locate a MF Distributor
+#### SEBI
+#### Useful Links
+#### View More
+#### TERMS OF USE
+#### |
+#### PRIVACY NOTICE
+#### © 2025 AMFI. All Rights Reserved
+AMFI - Association of Mutual Funds in India

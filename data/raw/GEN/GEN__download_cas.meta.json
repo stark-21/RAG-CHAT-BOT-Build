@@ -1,0 +1,26 @@
+{
+  "doc_id": "GEN__download_cas",
+  "scheme_id": "GEN",
+  "scheme_name": "General - AMFI/SEBI investor education",
+  "category": "General",
+  "doc_type": "guide",
+  "title": "Download CAS - Consolidated Account Statement",
+  "source_url": "https://www.amfiindia.com/online-center/download-cas",
+  "publisher": "AMFI",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "0b15fc21c48dab054a2381233bd2857d3be8aa6d3377cc5c7ed0e93606539dbc",
+  "raw_path": "data\\raw\\GEN\\GEN__download_cas.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 2543,
+    "lines": 53,
+    "headings_marked": 34,
+    "content_root": "body",
+    "tables_found": 0,
+    "tables_kept": 0,
+    "tables_dropped": 0,
+    "lines_dropped": 2
+  },
+  "note": ""
+}

@@ -1,0 +1,219 @@
+/
+Investor Corner
+/
+Categorization of Mutual Fund Schemes
+## Categorization of Mutual Fund Schemes
+As per SEBI guidelines on Categorization and Rationalization of schemes issued in October 2017, mutual fund schemes are classified as –
+Equity Schemes
+Debt Schemes
+Hybrid Schemes
+Solution Oriented Schemes – For Retirement and Children
+Other Schemes – Index Funds & ETFs and Fund of Funds
+– Under Equity category, Large, Mid and Small cap stocks have now been defined.
+– Naming convention of the schemes, especially debt schemes, as per the risk level of underlying portfolio (e.g., the erstwhile ‘Credit Opportunity Fund’ is now called “Credit Risk Fund”)
+– Balanced / Hybrid funds are further categorised into conservative hybrid fund, balanced hybrid fund and aggressive hybrid fund.
+## EQUITY SCHEMES
+An equity Scheme is a fund that –
+– Primarily invests in equities and equity related instruments.
+– Seeks long term growth but could be volatile in the short term.
+– Suitable for investors with higher risk appetite and longer investment horizon.
+The objective of an equity fund is generally to seek long-term capital appreciation. Equity funds may focus on certain sectors of the market or may have a specific investment style, such as investing in value or growth stocks.
+###### Equity Fund Categories as per SEBI guidelines on Categorization and Rationalization of schemes
+## Sector Specific Funds
+Sectoral funds invest in a particular sector of the economy such as infrastructure, banking, technology or pharmaceuticals etc.
+– Since these funds focus on just one sector of the economy, they limit diversification, and are thus riskier.
+– Timing of investment into such funds are important, because the performance of the sectors tend to be cyclical.
+Examples of Sector Specific Funds - Equity Mutual Funds with an investment objective to invest in
+Pharma & Healthcare Sector
+Banking & Finance Sector:
+FMCG (fast moving consumer goods) and related sectors.
+Technology and related sectors
+## Thematic funds
+Thematic funds select stocks of companies in industries that belong to a particular theme - For example, Infrastructure, Service industries, PSUs or MNCs.
+They are more diversified than Sectoral Funds and hence have lower risk than Sectoral funds.
+## Value Funds (Strategy and Style Based Funds)
+Equity funds may be categorized based on the valuation parameters adopted in stock selection, such as
+– Growth funds identify momentum stocks that are expected to perform better than the market
+– Value funds identify stocks that are currently undervalued but are expected to perform well over time as the value is unlocked
+Equity funds may hold a concentrated portfolio to benefit from stock selection.
+– These funds will have a higher risk since the effect of a wrong selection can be substantial on the portfolio’s return
+## Contra Funds
+Contra funds are equity mutual funds that take a contrarian view on the market.
+Underperforming stocks and sectors are picked at low price points with a view that they will perform in the long run.
+The portfolios of contra funds have defensive and beaten down stocks that have given negative returns during bear markets.
+These funds carry the risk of getting calls wrong as catching a trend before the herd is not possible in every market cycle and these funds typically underperform in a bull market.
+As per the SEBI guidelines on Scheme categorisation of mutual funds, a fund house can either offer a Contra Fund or a Value Fund, not both.
+## Equity Linked Savings Scheme (ELSS)
+ELSS invests at least 80% in stocks in accordance with Equity Linked Saving Scheme, 2005, notified by Ministry of Finance.
+Has lock-in period of 3 years (which is shortest amongst all other tax saving options)
+Currently eligible for deduction under Sec 80C of the Income Tax Act upto ₹1,50,000
+## DEBT SCHEMES
+A debt fund (also known as income fund) is a fund that invests primarily in bonds or other debt securities.
+Debt funds invest in short and long-term securities issued by government, public financial institutions, companies
+– Treasury bills, Government Securities, Debentures, Commercial paper, Certificates of Deposit and others
+Debt funds can be categorized based on the tenor of the securities held in the portfolio and/or on the basis of the issuers of the securities or their fund management strategies, such as
+– Short-term funds, Medium-term funds, Long-term funds
+– Gilt fund, Treasury fund, Corporate bond fund, Infrastructure debt fund
+Floating rate funds, Dynamic Bond funds, Fixed Maturity Plans
+Debt funds have potential for income generation and capital preservation.
+###### Debt Fund Categories as per SEBI guidelines on Categorization and Rationalization of schemes
+Dynamic Bond funds alter the tenor of the securities in the portfolio in line with expectation on interest rates. The tenor is increased if interest rates are expected to go down and vice versa
+Floating rate funds invest in bonds whose interest are reset periodically so that the fund earns coupon income that is in line with current rates in the market, and eliminates interest rate risk to a large extent
+## Short-Term Debt Funds
+The primary focus of short-term debt funds is coupon income. Short term debt funds have to also be evaluated for the credit risk they may take to earn higher coupon income. The tenor of the securities will define the return and risk of the fund.
+– Funds holding securities with lower tenors have lower risk and lower return.
+Liquid funds invest in securities with not more than 91 days to maturity.
+Ultra Short-Term Debt Funds hold a portfolio with a slightly higher tenor to earn higher coupon income.
+Short-Term Fund combine coupon income earned from a pre-dominantly short-term debt portfolio with some exposure to longer term securities to benefit from appreciation in price.
+## Fixed Maturity Plans (FMPs)
+-FMPs are closed-ended funds which eliminate interest rate risk and lock-in a yield by investing only in securities whose maturity matches the maturity of the fund.
+– FMPs create an investment portfolio whose maturity profile match that of the FMP tenor.
+– Potential to provide better returns than liquid funds and Ultra Short Term Funds since investments are locked in
+– Low mark to market risk as investments are liquidated at maturity.
+– Investors commit money for a fixed period.
+– Investors cannot prematurely redeem the units from the fund
+– FMPs, being closed-end schemes are mandatorily listed - investors can buy or sell units of FMPs only on the stock exchange after the NFO.
+– Only Units held in dematerialized mode can be traded; therefore investors seeking liquidity in such schemes need to have a demat accoun
+## Capital Protection Oriented Funds
+Capital Protection Oriented Funds are close-ended hybrid funds that create a portfolio of debt instruments and equity derivatives
+– The portfolio is structured to provide capital protection and is rated by a credit rating agency on its ability to do so. The rating is reviewed every quarter.
+– The debt component of the portfolio has to be invested in instruments with the highest investment grade rating.
+– A portion of the amount brought in by the investors is invested in debt instruments that is expected to mature to the par value of the capital invested by investors into the fund. The capital is thus protected.
+– The remaining portion of the funds is used to invest in equity derivatives to generate higher returns
+## Hybrid funds
+Hybrid funds Invest in a mix of equities and debt securities.
+###### SEBI has classified Hybrid funds into 7 sub-categories as follows:
+###### Solution-oriented & Other funds
+##### Hybrid funds
+Invest in a mix of equities and debt securities. They seek to find a ‘balance’ between growth and income by investing in both equity and debt.
+– The regular income earned from the debt instruments provide greater stability to the returns from such funds.
+– The proportion of equity and debt that will be held in the portfolio is indicated in the Scheme Information Document
+– Equity oriented hybrid funds (Aggressive Hybrid Funds) are ideal for investors looking for growth in their investment with some stability.
+– Debt-oriented hybrid funds (Conservative Hybrid Fund) are suitable for conservative investors looking for a boost in returns with a small exposure to equity.
+– The risk and return of the fund will depend upon the equity exposure taken by the portfolio - Higher the allocation to equity, greater is the risk
+## Multi Asset Funds
+A multi-asset fund offers exposure to a broad number of asset classes, often offering a level of diversification typically associated with institutional investing.
+Multi-asset funds may invest in a number of traditional equity and fixed income strategies, index-tracking funds, financial derivatives as well as commodity like gold.
+This diversity allows portfolio managers to potentially balance risk with reward and deliver steady, long-term returns for investors, particularly in volatile markets.
+## Arbitrage Funds
+“Arbitrage” is the simultaneous purchase and sale of an asset to take advantage of the price differential in the two markets and profit from price difference of the asset on different markets or in different forms.
+– Arbitrage fund buys a stock in the cash market and simultaneously sells it in the Futures market at a higher price to generate returns from the difference in the price of the security in the two markets.
+– The fund takes equal but opposite positions in both the markets, thereby locking in the difference.
+– The positions have to be held until expiry of the derivative cycle and both positions need to be closed at the same price to realize the difference.
+– The cash market price converges with the Futures market price at the end of the contract period. Thus it delivers risk-free profit for the investor/trader.
+– Price movements do not affect initial price differential because the profit in one market is set-off by the loss in the other market.
+– Since mutual funds invest own funds, the difference is fully the return.
+Hence, Arbitrage funds are considered to be a good choice for cautious investors who want to benefit from a volatile market without taking on too much risk.
+## Index Funds
+Index funds create a portfolio that mirrors a market index.
+– The securities included in the portfolio and their weights are the same as that in the index
+– The fund manager does not rebalance the portfolio based on their view of the market or sector
+– Index funds are passively managed, which means that the fund manager makes only minor, periodic adjustments to keep the fund in line with its index. Hence, Index fund offers the same return and risk represented by the index it tracks.
+– The fees that an index fund can charge is capped at 1.5%
+Investors have the comfort of knowing the stocks that will form part of the portfolio, since the composition of the index is known.
+## Exchange Traded Funds (ETFs)
+An ETF is a marketable security that tracks an index, a commodity, bonds, or a basket of assets like an index fund.
+ETFs are listed on stock exchanges.
+Unlike regular mutual funds, an ETF trades like a common stock on a stock exchange. The traded price of an ETF changes throughout the day like any other stock, as it is bought and sold on the stock exchange.
+ETF Units are compulsorily held in Demat mode
+ETFs are passively managed, which means that the fund manager makes only minor, periodic adjustments to keep the fund in line with its index
+Because an ETF tracks an index without trying to outperform it, it incurs lower administrative costs than actively managed portfolios.
+Rather than investing in an ‘active’ fund managed by a fund manager, when one buy units of an ETF one is harnessing the power of the market itself.
+Suitable for investors seeking returns similar to index and liquidity similar to stocks
+## Fund of Funds (FoF)
+Fund of funds are mutual fund schemes that invest in the units of other schemes of the same mutual fund or other mutual funds.
+The schemes selected for investment will be based on the investment objective of the FoF
+The FoF have two levels of expenses: that of the scheme whose units the FoF invests in and the expense of the FoF itself. Regulations limit the total expenses that can be charged across both levels as follows:
+– TER in respect of FoF investing liquid schemes, index funds & ETFs has been capped @ 1%
+– TER of FoF investing in equity-oriented schemes has been capped @ 2.25%
+– TER of FoF investing in other schemes than mentioned above has been capped @2%.
+## Gold Exchange Traded Funds (FoF)
+Gold ETFs are ETFs with gold as the underlying asset
+– The scheme will issue units against gold held. Each unit will represent a defined weight in gold, typically one gram.
+– The scheme will hold gold in form of physical gold or gold related instruments approved by SEBI.
+– Schemes can invest up to 20% of net assets in Gold Deposit Scheme of banks
+The price of ETF units moves in line with the price of gold on metal exchange.
+After the NFO, units are issued to intermediaries called authorized participants against gold or funds submitted. They can also redeem the units for the underlying gol
+## Benefits of Gold ETFs
+Convenience --> option of holding gold electronically instead of physical gold.
+– Safer option to hold gold since there are no risks of theft or purity.
+– Provides easy liquidity and ease of transaction.
+For the purpose of capital gains taxation, Gold ETFs are considered as "Specified Mutual Funds" (i.e., non-equity oriented mutual funds).
+No wealth tax is applicable on Gold ETFs .
+## International Funds
+International funds enable investments in markets outside India, by holding in their portfolio one or more of the following:
+– Equity of companies listed abroad.
+– ADRs and GDRs of Indian companies.
+– Debt of companies listed abroad.
+– ETFs of other countries.
+– Units of passive index funds in other countries.
+– Units of actively managed mutual funds in other countries.
+International equity funds may also hold some of their portfolios in Indian equity or debt.
+– They can hold some portion of the portfolio in money market instruments to manage liquidity.
+International funds gives the investor additional benefits of
+– Diversification, since global markets may have a low correlation with domestic markets.
+– Investment options that may not be available domestically.
+– Access to companies that are global leaders in their field.
+There are risks associated with investing in such funds, such as –
+– Political events and macro economic factors that are less familiar and therefore difficult to interpret
+– Movements in foreign exchange rate may affect the return on redemption
+– Countries may change their investment policy towards global investors.
+For the purpose of taxation, these funds are considered as non-equity oriented mutual fund schemes.
+##### What's Covered?
+###### EQUITY SCHEMES
+###### Sector Specific Funds
+###### Thematic funds
+###### Value Funds (Strategy and Style Based Funds)
+###### Contra Funds
+###### Equity Linked Savings Scheme (ELSS)
+###### DEBT SCHEMES
+###### Short-Term Debt Funds
+###### Fixed Maturity Plans (FMPs)
+###### Capital Protection Oriented Funds
+###### Hybrid funds
+###### Multi Asset Funds
+###### Arbitrage Funds
+###### Index Funds
+###### Exchange Traded Funds (ETFs)
+###### Fund of Funds (FoF)
+###### Gold Exchange Traded Funds (FoF)
+###### Benefits of Gold ETFs
+###### International Funds
+##### Related Topics
+##### Types of MF Schemes
+##### Risks in MF
+##### Advantages of Investing in MF
+### Light
+### Dark
+Investor
+Distributor
+Research & Information
+About AMFI
+Search
+Association of Mutual Funds in India
+CIN- U65991MH1995NPL092062
+Know About AMFI
+#### About AMFI
+#### Objectives
+#### Board of Directors
+#### AMFI Executives
+#### Committees
+#### View More
+Media
+#### Press Release
+#### AMFI Publications
+#### AMFI Mutual Fund Summit
+#### Gallery
+#### Videos
+Other Links
+#### Schedule of Investor Awareness Program
+#### AMC Branches
+#### Locate a MF Distributor
+#### SEBI
+#### Useful Links
+#### View More
+#### TERMS OF USE
+#### |
+#### PRIVACY NOTICE
+#### © 2025 AMFI. All Rights Reserved
+AMFI - Association of Mutual Funds in India

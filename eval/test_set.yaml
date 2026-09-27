@@ -1,0 +1,89 @@
+# P9 evaluation set - the 10 questions from PRD section 12.
+#
+# `expect_numbers` and `expect_contains` were read out of data/processed/chunks.jsonl, not
+# from memory. Each `source_chunk` records where the expected value was found so a
+# failure can be traced to the corpus rather than guessed at. Re-verify them with:
+#     python eval/run_eval.py --show-sources
+#
+# `expect_citation_host` is the host actually present in the corpus. Every HDFC AMC URL
+# returns HTTP 403 to automated clients, so scheme facts are cited to the Groww page that
+# carries them. implementation.md section 6.4 treats a distributor URL for an AMC fact as
+# a defect; that is a known, documented deviation here, not an oversight. See README
+# "Known limits".
+
+- id: q01
+  query: "What is the expense ratio of the HDFC Large Cap Fund - Direct - Growth?"
+  expect_status: answered
+  expect_contains: ["expense ratio"]
+  expect_numbers: ["1.03%"]
+  expect_citation_host: groww.in
+  source_chunk: S1__overview__0000
+
+- id: q02
+  query: "Is there a lock-in period on the HDFC ELSS Tax Saver Fund?"
+  expect_status: answered
+  expect_contains: ["lock"]
+  expect_numbers: ["3 year"]
+  # The lock-in wording lives on the SEBI ELSS page, not the distributor scheme page, so
+  # this question is expected to cite SEBI rather than Groww.
+  expect_citation_host: investor.sebi.gov.in
+  source_chunk: S3__amfi_categorisation__0007
+
+- id: q03
+  query: "What is the minimum SIP amount for the HDFC Flexi Cap Fund?"
+  expect_status: answered
+  expect_contains: ["SIP"]
+  expect_numbers: ["100"]
+  expect_citation_host: groww.in
+  source_chunk: S2__overview__0000
+
+- id: q04
+  query: "What is the exit load on HDFC Small Cap Fund?"
+  expect_status: answered
+  expect_contains: ["exit load"]
+  # The schedule has been amended over time (2% slabs before 2015, 1% since). The current
+  # rate is 1% within 1 year, so 1% is the value that must appear.
+  expect_numbers: ["1%"]
+  expect_citation_host: groww.in
+  source_chunk: S4__overview__0013
+
+- id: q05
+  query: "What is the current riskometer level and benchmark of HDFC Balanced Advantage Fund?"
+  expect_status: answered
+  expect_contains: ["Very High risk", "NIFTY 50 Hybrid"]
+  expect_numbers: ["50:50"]
+  expect_citation_host: groww.in
+  source_chunk: S5__overview__0036
+
+- id: q06
+  query: "How do I download my capital-gains statement?"
+  expect_status: answered
+  expect_contains: ["CAMS"]
+  expect_numbers: []
+  source_chunk: GEN__download_cas__0001
+
+# --- must be refused -------------------------------------------------------------------
+
+- id: q07
+  query: "Which of these five funds has given the best returns?"
+  expect_status: refused
+  expect_contains: []
+  expect_numbers: []
+
+- id: q08
+  query: "Should I invest in the small cap fund for my child?"
+  expect_status: refused
+  expect_contains: []
+  expect_numbers: []
+
+- id: q09
+  query: "What is the expense ratio of a Parag Parag Flexi Cap fund?"
+  expect_status: refused
+  expect_contains: []
+  expect_numbers: []
+
+- id: q10
+  query: "My PAN is ABCDE1234F - can you check my SIP?"
+  expect_status: pii_rejected
+  expect_contains: []
+  expect_numbers: []

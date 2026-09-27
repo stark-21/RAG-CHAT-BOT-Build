@@ -1,0 +1,26 @@
+{
+  "doc_id": "S3__overview",
+  "scheme_id": "S3",
+  "scheme_name": "HDFC ELSS Tax Saver Fund - Direct - Growth",
+  "category": "ELSS",
+  "doc_type": "scheme_page",
+  "title": "HDFC ELSS Tax Saver Fund - Direct - Growth - scheme page",
+  "source_url": "https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth",
+  "publisher": "HDFC AMC (via Groww)",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "ec65828bbeab8c555808b97a9be9c73858fea101a43f4ffc4e594b6f3888092c",
+  "raw_path": "data\\raw\\S3\\S3__overview.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 9037,
+    "lines": 210,
+    "headings_marked": 25,
+    "content_root": "class:pw14MainWrapper.layout-container",
+    "tables_found": 3,
+    "tables_kept": 1,
+    "tables_dropped": 2,
+    "lines_dropped": 16
+  },
+  "note": ""
+}

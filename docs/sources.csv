@@ -1,0 +1,11 @@
+source_id,publisher,scheme_id,scheme_name,category,doc_type,source_url,retrieved_at,chunk_count,token_total,token_min,token_max
+GEN__download_cas,AMFI,GEN,General - AMFI/SEBI investor education,General,guide,https://www.amfiindia.com/online-center/download-cas,2026-09-27,8,275,14,72
+GEN__sebi_cas,SEBI,GEN,General - AMFI/SEBI investor education,General,education,https://investor.sebi.gov.in/consolidated_account_statement.html,2026-09-27,2,131,18,113
+GEN__tax_regime,AMFI,GEN,General - AMFI/SEBI investor education,General,guide,https://www.amfiindia.com/investor/knowledge-center-info?zoneName=TaxRegimeForMutualFunds,2026-09-27,16,3838,14,500
+S1__overview,HDFC AMC (via Groww),S1,HDFC Large Cap Fund - Direct - Growth,Large Cap,scheme_page,https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth,2026-09-27,21,2351,20,494
+S2__overview,HDFC AMC (via Groww),S2,HDFC Equity (Flexi Cap) Fund - Direct - Growth,Flexi Cap,scheme_page,https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth,2026-09-27,22,2930,22,496
+S3__amfi_categorisation,AMFI,S3,HDFC ELSS Tax Saver Fund - Direct - Growth,ELSS,education,https://www.amfiindia.com/investor/knowledge-center-info?zoneName=CategorizationOfMutualFundSchemes,2026-09-27,28,4055,18,330
+S3__overview,HDFC AMC (via Groww),S3,HDFC ELSS Tax Saver Fund - Direct - Growth,ELSS,scheme_page,https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth,2026-09-27,22,2564,21,495
+S3__sebi_elss,SEBI,S3,HDFC ELSS Tax Saver Fund - Direct - Growth,ELSS,education,https://investor.sebi.gov.in/elss.html,2026-09-27,6,766,26,178
+S4__overview,HDFC AMC (via Groww),S4,HDFC Small Cap Fund - Direct - Growth,Small Cap,scheme_page,https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth,2026-09-27,22,2974,20,494
+S5__overview,HDFC AMC (via Groww),S5,HDFC Balanced Advantage Fund - Direct - Growth,Hybrid,scheme_page,https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth,2026-09-27,37,9582,21,496

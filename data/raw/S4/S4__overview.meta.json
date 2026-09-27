@@ -1,0 +1,26 @@
+{
+  "doc_id": "S4__overview",
+  "scheme_id": "S4",
+  "scheme_name": "HDFC Small Cap Fund - Direct - Growth",
+  "category": "Small Cap",
+  "doc_type": "scheme_page",
+  "title": "HDFC Small Cap Fund - Direct - Growth - scheme page",
+  "source_url": "https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth",
+  "publisher": "HDFC AMC (via Groww)",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "8bcb699fe64d4a9c907fb363fd6d5bbda6c9ebcae2e7d308e736ddfaf95cdedf",
+  "raw_path": "data\\raw\\S4\\S4__overview.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 10872,
+    "lines": 244,
+    "headings_marked": 26,
+    "content_root": "class:pw14MainWrapper.layout-container",
+    "tables_found": 4,
+    "tables_kept": 1,
+    "tables_dropped": 3,
+    "lines_dropped": 16
+  },
+  "note": ""
+}

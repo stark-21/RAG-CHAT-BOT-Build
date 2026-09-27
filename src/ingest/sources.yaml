@@ -1,0 +1,187 @@
+# Declarative source registry for the Mutual Fund FAQ Assistant.
+# Every URL here was probed and its reachability recorded in `note` / `verify`.
+# PRD 5.3: public pages only, AMC / SEBI / AMFI publishers, no third-party blogs.
+# The loader enforces the host allowlist below mechanically.
+
+amc: HDFC Asset Management
+amc_short: HDFC
+amc_domain: hdfcfund.com
+
+allowed_hosts:
+  - groww.in
+  - hdfcfund.com
+  - amfiindia.com
+  - sebi.gov.in
+
+# Facts-only product rule: performance and ranking blocks are dropped at ingestion
+# so return figures can never reach retrieval (PRD 2.3 non-goals, PRD 10.1).
+content_policy:
+  include_performance: false
+
+schemes:
+  - scheme_id: S1
+    scheme_name: HDFC Large Cap Fund - Direct - Growth
+    category: Large Cap
+    entry_url: https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+    aliases: [large cap, hdfc large cap, hdfc large cap fund]
+    documents:
+      - slug: overview
+        doc_type: scheme_page
+        title: HDFC Large Cap Fund - Direct - Growth - scheme page
+        publisher: HDFC AMC (via Groww)
+        url: https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+        format: html
+        note: >-
+          Brief-supplied URL. Carries expense ratio, exit load, minimum SIP/lumpsum,
+          benchmark and the risk band as label/value blocks.
+      - slug: kim
+        doc_type: kim_sid
+        title: HDFC Mutual Fund - Key Information Memorandum
+        publisher: HDFC AMC
+        url: https://www.hdfcfund.com/mutual-funds/fund-documents/kim
+        format: html
+        verify: true
+        note: >-
+          Real AMC page, but returns HTTP 403 to automated clients from this network.
+          Open it in a browser and save it to data/raw/S1/ to include it.
+
+  - scheme_id: S2
+    scheme_name: HDFC Equity (Flexi Cap) Fund - Direct - Growth
+    category: Flexi Cap
+    entry_url: https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+    aliases: [flexi cap, hdfc equity, hdfc flexi cap, equity fund]
+    documents:
+      - slug: overview
+        doc_type: scheme_page
+        title: HDFC Equity (Flexi Cap) Fund - Direct - Growth - scheme page
+        publisher: HDFC AMC (via Groww)
+        url: https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth
+        format: html
+      - slug: kim
+        doc_type: kim_sid
+        title: HDFC Mutual Fund - Key Information Memorandum
+        publisher: HDFC AMC
+        url: https://www.hdfcfund.com/mutual-funds/fund-documents/kim
+        format: html
+        verify: true
+        note: HTTP 403 to automated clients from this network; save manually if needed.
+
+  - scheme_id: S3
+    scheme_name: HDFC ELSS Tax Saver Fund - Direct - Growth
+    category: ELSS
+    entry_url: https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+    aliases: [elss, tax saver, hdfc elss, elss tax saver]
+    documents:
+      - slug: overview
+        doc_type: scheme_page
+        title: HDFC ELSS Tax Saver Fund - Direct - Growth - scheme page
+        publisher: HDFC AMC (via Groww)
+        url: https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+        format: html
+        note: >-
+          The scheme page does NOT state the statutory 3-year lock-in, so the lock-in
+          answer is grounded in the AMFI and SEBI education pages listed below.
+      - slug: kim
+        doc_type: kim_sid
+        title: HDFC Mutual Fund - Key Information Memorandum
+        publisher: HDFC AMC
+        url: https://www.hdfcfund.com/mutual-funds/fund-documents/kim
+        format: html
+        verify: true
+        note: HTTP 403 to automated clients from this network; save manually if needed.
+      - slug: amfi_categorisation
+        doc_type: education
+        title: Categorization of Mutual Fund Schemes
+        publisher: AMFI
+        url: https://www.amfiindia.com/investor/knowledge-center-info?zoneName=CategorizationOfMutualFundSchemes
+        format: html
+        note: Official AMFI page stating the ELSS 3-year lock-in under Section 80C.
+
+  - scheme_id: S4
+    scheme_name: HDFC Small Cap Fund - Direct - Growth
+    category: Small Cap
+    entry_url: https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+    aliases: [small cap, hdfc small cap, hdfc small cap fund]
+    documents:
+      - slug: overview
+        doc_type: scheme_page
+        title: HDFC Small Cap Fund - Direct - Growth - scheme page
+        publisher: HDFC AMC (via Groww)
+        url: https://groww.in/mutual-funds/hdfc-small-cap-fund-direct-growth
+        format: html
+      - slug: kim
+        doc_type: kim_sid
+        title: HDFC Mutual Fund - Key Information Memorandum
+        publisher: HDFC AMC
+        url: https://www.hdfcfund.com/mutual-funds/fund-documents/kim
+        format: html
+        verify: true
+        note: HTTP 403 to automated clients from this network; save manually if needed.
+
+  - scheme_id: S5
+    scheme_name: HDFC Balanced Advantage Fund - Direct - Growth
+    category: Hybrid
+    entry_url: https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+    aliases: [balanced advantage, balanced, hdfc balanced advantage, balanced advantage fund]
+    documents:
+      - slug: overview
+        doc_type: scheme_page
+        title: HDFC Balanced Advantage Fund - Direct - Growth - scheme page
+        publisher: HDFC AMC (via Groww)
+        url: https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth
+        format: html
+        note: >-
+          Carries the SEBI risk band and benchmark as label/value blocks. The AMC
+          riskometer page itself is not reachable from this network, so the risk band
+          is answered from the scheme page and labelled with that source.
+      - slug: kim
+        doc_type: kim_sid
+        title: HDFC Mutual Fund - Key Information Memorandum
+        publisher: HDFC AMC
+        url: https://www.hdfcfund.com/mutual-funds/fund-documents/kim
+        format: html
+        verify: true
+        note: HTTP 403 to automated clients from this network; save manually if needed.
+
+# Scheme-agnostic reference pages. `applies_to: ["*"]` stores them once under the
+# pseudo-scheme GEN so retrieval can include them alongside any scheme filter.
+reference_documents:
+  - slug: download_cas
+    doc_type: guide
+    title: Download CAS - Consolidated Account Statement
+    publisher: AMFI
+    url: https://www.amfiindia.com/online-center/download-cas
+    format: html
+    applies_to: ["*"]
+    note: Official step-by-step guide for downloading a statement (CAMS, KFintech, MF Central).
+
+  - slug: tax_regime
+    doc_type: guide
+    title: Tax Regime for Mutual Funds
+    publisher: AMFI
+    url: https://www.amfiindia.com/investor/knowledge-center-info?zoneName=TaxRegimeForMutualFunds
+    format: html
+    applies_to: ["*"]
+    note: Official capital-gains tax reference backing the tax-document questions.
+
+  - slug: sebi_elss
+    doc_type: education
+    title: A Guide to ELSS (Equity-Linked Savings Scheme)
+    publisher: SEBI
+    url: https://investor.sebi.gov.in/elss.html
+    format: html
+    applies_to: [S3]
+    verify: true
+    note: >-
+      Real SEBI investor page stating the 3-year lock-in, but the host returns HTTP 502
+      from this network. Kept in the registry as the authoritative citation for ELSS.
+
+  - slug: sebi_cas
+    doc_type: education
+    title: Consolidated Account Statement
+    publisher: SEBI
+    url: https://investor.sebi.gov.in/consolidated_account_statement.html
+    format: html
+    applies_to: ["*"]
+    verify: true
+    note: Real SEBI investor page; HTTP 502 from this network.

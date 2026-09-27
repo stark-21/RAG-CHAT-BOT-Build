@@ -1,0 +1,26 @@
+{
+  "doc_id": "S3__amfi_categorisation",
+  "scheme_id": "S3",
+  "scheme_name": "HDFC ELSS Tax Saver Fund - Direct - Growth",
+  "category": "ELSS",
+  "doc_type": "education",
+  "title": "Categorization of Mutual Fund Schemes",
+  "source_url": "https://www.amfiindia.com/investor/knowledge-center-info?zoneName=CategorizationOfMutualFundSchemes",
+  "publisher": "AMFI",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "0e004366950da5e8b67dee0e9a8f1c781918a21ef732b6a1761b282281da1851",
+  "raw_path": "data\\raw\\S3\\S3__amfi_categorisation.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 16203,
+    "lines": 219,
+    "headings_marked": 72,
+    "content_root": "body",
+    "tables_found": 0,
+    "tables_kept": 0,
+    "tables_dropped": 0,
+    "lines_dropped": 2
+  },
+  "note": ""
+}

@@ -1,0 +1,26 @@
+{
+  "doc_id": "S2__overview",
+  "scheme_id": "S2",
+  "scheme_name": "HDFC Equity (Flexi Cap) Fund - Direct - Growth",
+  "category": "Flexi Cap",
+  "doc_type": "scheme_page",
+  "title": "HDFC Equity (Flexi Cap) Fund - Direct - Growth - scheme page",
+  "source_url": "https://groww.in/mutual-funds/hdfc-equity-fund-direct-growth",
+  "publisher": "HDFC AMC (via Groww)",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "7f965052e92773e32439f77c8eb8b48c7cda8578397fbee2dbad1c578ed24536",
+  "raw_path": "data\\raw\\S2\\S2__overview.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 10562,
+    "lines": 233,
+    "headings_marked": 26,
+    "content_root": "class:pw14MainWrapper.layout-container",
+    "tables_found": 4,
+    "tables_kept": 1,
+    "tables_dropped": 3,
+    "lines_dropped": 16
+  },
+  "note": ""
+}

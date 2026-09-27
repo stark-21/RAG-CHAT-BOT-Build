@@ -1,0 +1,26 @@
+{
+  "doc_id": "S3__sebi_elss",
+  "scheme_id": "S3",
+  "scheme_name": "HDFC ELSS Tax Saver Fund - Direct - Growth",
+  "category": "ELSS",
+  "doc_type": "education",
+  "title": "A Guide to ELSS (Equity-Linked Savings Scheme)",
+  "source_url": "https://investor.sebi.gov.in/elss.html",
+  "publisher": "SEBI",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "e97d81f9950b3e838dab83271b5ec45e201966cb768cc16bd54f31a0a5c87438",
+  "raw_path": "data\\raw\\S3\\S3__sebi_elss.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 2864,
+    "lines": 41,
+    "headings_marked": 6,
+    "content_root": "class:page-content-wrapper",
+    "tables_found": 0,
+    "tables_kept": 0,
+    "tables_dropped": 0,
+    "lines_dropped": 2
+  },
+  "note": ""
+}

@@ -1,0 +1,26 @@
+{
+  "doc_id": "GEN__sebi_cas",
+  "scheme_id": "GEN",
+  "scheme_name": "General - AMFI/SEBI investor education",
+  "category": "General",
+  "doc_type": "education",
+  "title": "Consolidated Account Statement",
+  "source_url": "https://investor.sebi.gov.in/consolidated_account_statement.html",
+  "publisher": "SEBI",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "8a3d7c0a2490430693707a1296d545cf6b15c02b200c8aa7d643bee3d6ba0bf8",
+  "raw_path": "data\\raw\\GEN\\GEN__sebi_cas.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 576,
+    "lines": 7,
+    "headings_marked": 3,
+    "content_root": "body",
+    "tables_found": 0,
+    "tables_kept": 0,
+    "tables_dropped": 0,
+    "lines_dropped": 2
+  },
+  "note": ""
+}

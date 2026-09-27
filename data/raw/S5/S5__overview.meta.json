@@ -1,0 +1,26 @@
+{
+  "doc_id": "S5__overview",
+  "scheme_id": "S5",
+  "scheme_name": "HDFC Balanced Advantage Fund - Direct - Growth",
+  "category": "Hybrid",
+  "doc_type": "scheme_page",
+  "title": "HDFC Balanced Advantage Fund - Direct - Growth - scheme page",
+  "source_url": "https://groww.in/mutual-funds/hdfc-balanced-advantage-fund-direct-growth",
+  "publisher": "HDFC AMC (via Groww)",
+  "retrieved_at": "2026-09-27",
+  "content_hash": "af7b61169b39f523d6e7ff2d34a788282bfa18898161096c1675d16be0fee9ef",
+  "raw_path": "data\\raw\\S5\\S5__overview.txt",
+  "status": "ok",
+  "reason": "",
+  "stats": {
+    "chars": 35859,
+    "lines": 593,
+    "headings_marked": 30,
+    "content_root": "class:pw14MainWrapper.layout-container",
+    "tables_found": 4,
+    "tables_kept": 1,
+    "tables_dropped": 3,
+    "lines_dropped": 16
+  },
+  "note": ""
+}

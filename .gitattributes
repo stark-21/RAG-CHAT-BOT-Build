@@ -1,0 +1,8 @@
+# Normalise line endings in the repository to LF so diffs stay clean across
+# Windows/macOS/Linux checkouts.
+* text=auto eol=lf
+
+# Generated vector index and onnx model cache are never text.
+*.onnx binary
+*.sqlite binary
+*.bin binary

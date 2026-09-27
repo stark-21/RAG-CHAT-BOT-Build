@@ -1,0 +1,7 @@
+Consolidated Account Statement
+# Consolidated Account Statement
+Consolidated Account Statement (CAS) is a single/ combined account statement which shows the details of transactions made by an investor during a month across all Mutual Funds and also other securities held in their demat account(s).
+In order to get your CAS, you should update your PAN card number with your depository participant /stock broker.
+Please watch the videos on CAS: -
+### NSDL CAS - A consolidated view of assets held in demat accounts and Mutual Fund Folios
+### Consolidated Account Statement (CAS)

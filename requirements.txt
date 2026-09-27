@@ -1,0 +1,35 @@
+# Mutual Fund FAQ Assistant - dependencies
+# All blocks below are installed and verified on Python 3.14 (CPU only).
+#
+#   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+#
+# torch is pinned to a CPU build. Install it from the PyTorch CPU index:
+#   .\.venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+# then install the rest of this file.
+
+# --- CORE (P0-P2): config, types, logging, fetching, extraction, chunking, tests ---
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+pdfplumber>=0.11
+PyYAML>=6.0
+python-dotenv>=1.0
+tenacity>=8.2
+pydantic>=2.6
+pytest>=8.0
+
+# --- HEAVY (P3): embeddings + vector store, CPU only ---
+sentence-transformers>=3.0
+torch>=2.2
+chromadb>=0.5
+# Imported directly in src/retrieval and src/ingest, so it is pinned rather than left to
+# arrive transitively via torch. A transitive-only dependency breaks silently if torch ever
+# changes its own floor.
+numpy>=1.26
+
+# NOTE: langchain-text-splitters is deliberately NOT used. P2's RecursiveSplitter is
+# implemented locally in src/ingest/chunker.py, which avoids pulling in langchain-core
+# for ~30 lines of logic (ADR A5: no heavy orchestration framework).
+
+# --- P8: UI ---
+streamlit>=1.30
