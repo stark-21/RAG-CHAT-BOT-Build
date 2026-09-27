@@ -29,14 +29,18 @@ services:
       && python -m src.ingest.build_index --stage embed
       && python -m src.ingest.build_index --stage store
 
-    # "python -m streamlit" is required, not "streamlit". Running the console
-    # script directly leaves the repo root off sys.path, so the "from src.config
-    # import ..." at the top of src/app.py fails with
-    #   ModuleNotFoundError: No module named 'src'
-    # "-m" prepends the working directory (the repo root) to sys.path, and
-    # PYTHONPATH=. makes that explicit rather than relying on Streamlit internals.
-    # No self-healing index rebuild here on purpose: the build command already
-    # runs on every deploy, so data/chroma/ is always present after a deploy.
+    # THIS MUST BE SET. If the Start Command is left blank in the Render
+    # dashboard, Render auto-detects the framework, assumes FastAPI/Starlette and
+    # runs "uvicorn src.app:app", which fails with:
+    #   ERROR: Error loading ASGI app. Attribute "app" not found in module "src.app"
+    #   Exited with status 3
+    # because src/app.py is a Streamlit script with no ASGI "app" object. A
+    # Procfile at the repo root carries the same command as a second line of
+    # defence, but do not rely on it - set the field.
+    #
+    # "python -m streamlit" is also deliberate rather than bare "streamlit":
+    # -m prepends the working directory to sys.path. src/app.py additionally
+    # seeds the repo root itself, so either form now works.
     startCommand: >-
       PYTHONPATH=. python -m streamlit run src/app.py --server.port $PORT --server.address 0.0.0.0
 
