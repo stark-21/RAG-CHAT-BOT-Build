@@ -9,8 +9,8 @@
 # snapshots in data/raw/ + data/processed/chunks.jsonl. It deliberately avoids
 # "--rebuild", which re-scrapes all 10 documents and fails on the HDFC 403s.
 #
-# Start command is self-healing: Render's filesystem is ephemeral, so the index
-# is rebuilt only when data/chroma/ is missing (e.g. after a restart).
+# The build command re-runs on every deploy, so the index is rebuilt each time
+# despite Render's ephemeral filesystem.
 
 services:
   - type: web
@@ -29,8 +29,16 @@ services:
       && python -m src.ingest.build_index --stage embed
       && python -m src.ingest.build_index --stage store
 
+    # "python -m streamlit" is required, not "streamlit". Running the console
+    # script directly leaves the repo root off sys.path, so the "from src.config
+    # import ..." at the top of src/app.py fails with
+    #   ModuleNotFoundError: No module named 'src'
+    # "-m" prepends the working directory (the repo root) to sys.path, and
+    # PYTHONPATH=. makes that explicit rather than relying on Streamlit internals.
+    # No self-healing index rebuild here on purpose: the build command already
+    # runs on every deploy, so data/chroma/ is always present after a deploy.
     startCommand: >-
-      sh -c "test -d data/chroma || (python -m src.ingest.build_index --stage embed && python -m src.ingest.build_index --stage store); streamlit run src/app.py --server.port $PORT --server.address 0.0.0.0"
+      PYTHONPATH=. python -m streamlit run src/app.py --server.port $PORT --server.address 0.0.0.0
 
     healthCheckPath: /_stcore/health
 
